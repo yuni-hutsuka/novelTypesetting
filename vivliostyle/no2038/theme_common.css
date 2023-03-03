@@ -1,0 +1,136 @@
+@charset "UTF-8";
+/*
+ * For all media (print, screen)
+ */
+/* you can import partial SCSS files */
+/* @import '_variables'; */
+/* @import '_toc'; */
+html {
+  writing-mode: vertical-rl;
+  orphans: 1;
+  widows: 1;
+  font-family: "Shippori Mincho", serif;
+  font-weight: normal;
+  font-size: 6pt;
+  text-align: justify;
+  hanging-punctuation: last allow-end;
+  text-spacing: space-first allow-end;
+  counter-reset: section subsection figure;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+title {
+  string-set: title content();
+}
+
+@page {
+  size: 210mm 148mm;
+  @top-center {
+    margin-top: 15px;
+    content: string(title);
+    font-size: 0.7em;
+    vertical-align: top;
+    writing-mode: horizontal-tb;
+  }
+  @bottom-center {
+    content: counter(page);
+    writing-mode: horizontal-tb;
+  }
+}
+@page :first {
+  counter-reset: page -1;
+  @bottom-center {
+    content: "";
+    writing-mode: horizontal-tb;
+  }
+}
+ruby > rt {
+  font-size: 50%;
+}
+
+/* 圏点（ゴマ） */
+em.sesame_dot {
+  font-style: normal;
+  text-emphasis-style: sesame;
+}
+
+h1 {
+  /* フォント */
+  font-weight: normal;
+  /* フォントサイズ */
+  font-size: 11.5pt;
+  /* 字下げ */
+  text-indent: 0;
+  /* 直後の改ページ・改段禁止 */
+  break-after: avoid;
+  line-height: 48pt;
+}
+
+h1.title {
+  font-weight: bold;
+  /* フォントサイズ */
+  font-size: 25pt;
+  margin: 120pt auto 10pt auto;
+}
+
+h1.author {
+  font-weight: bold;
+  /* フォントサイズ */
+  font-size: 18pt;
+  margin: 10pt auto 10pt auto;
+}
+
+h2 {
+  /* フォント */
+  font-weight: normal;
+  /* フォントサイズ */
+  font-size: 10pt;
+  /* 字下げ */
+  text-indent: 6em;
+  /* 直後の改ページ・改段禁止 */
+  break-after: avoid;
+  line-height: 32pt;
+}
+
+p {
+  text-indent: 1em;
+  hanging-punctuation: first allow-end;
+  margin: 0;
+  text-align: justify;
+  text-indent: 3em;
+}
+p:first-of-type {
+  text-indent: 0;
+}
+:root:lang(ja) p {
+  text-indent: 1em;
+}
+
+body > section {
+  margin: 10px auto;
+}
+
+/* 縦中横 */
+.tcy {
+  text-combine-upright: all;
+}
+
+/* シーン分け */
+.scene {
+  padding-top: 3em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.titlepage {
+  width: 168mm;
+  height: 118.4mm;
+  writing-mode: horizontal-tb;
+  text-align: center;
+}
+
+/*# sourceMappingURL=theme_common.css.map */

@@ -1,0 +1,94 @@
+@charset "UTF-8";
+html {
+  writing-mode: vertical-rl;
+  orphans: 1;
+  widows: 1;
+  font-family: "Shippori Mincho", serif;
+  font-weight: normal;
+  font-size: 9.5pt;
+  text-align: justify;
+  hanging-punctuation: last allow-end;
+  text-spacing: space-first allow-end;
+  column-count: 2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+title {
+  string-set: title content();
+}
+
+@page {
+  size: B5;
+  margin-top: 25mm;
+  margin-right: 30mm;
+  margin-left: 30mm;
+  margin-bottom: 25mm;
+  @top-center {
+    margin-top: 10mm;
+    content: string(title);
+    font-size: 0.7em;
+    vertical-align: top;
+    writing-mode: horizontal-tb;
+  }
+}
+ruby > rt {
+  font-size: 50%;
+}
+
+/* 縦中横 */
+.tcy {
+  text-combine-upright: all;
+}
+
+/* 圏点（ゴマ） */
+em.sesame_dot {
+  font-style: normal;
+  text-emphasis-style: sesame;
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 11.5pt;
+  text-indent: 0;
+  break-after: avoid;
+  line-height: 48pt;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 10pt;
+  text-indent: 6em;
+  break-after: avoid;
+  line-height: 32pt;
+}
+
+p {
+  text-indent: 1em;
+  hanging-punctuation: first allow-end;
+}
+
+p {
+  margin: 0;
+  text-align: justify;
+  text-indent: 1em;
+}
+p:first-of-type {
+  text-indent: 1;
+}
+:root:lang(ja) p {
+  text-indent: 1em;
+}
+
+body > section {
+  margin: 10px auto;
+}
+
+html {
+  counter-reset: section subsection figure;
+}
+
+/*# sourceMappingURL=theme_common.css.map */

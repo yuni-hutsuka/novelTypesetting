@@ -1,0 +1,32 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mark}[2023/03/05 mark]
+
+\RequirePackage{tikz}
+\usetikzlibrary{intersections, calc, arrows.meta}
+
+\newcommand{\markDoubleSun}{
+    \begin{tikzpicture}
+        \draw[dash dot, very thick] (0,0) circle (1.5cm);
+        \draw[dash dot, very thick] (0,0) circle (0.5cm);
+        \foreach \angle in
+            {0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330}
+            {\draw[very thick] (\angle:0.8cm) -- (\angle:2.5cm);}
+        \foreach \angle in
+            {15, 45, 75, 105, 135, 165, 195, 225, 255, 285, 315, 345}
+            {\draw[very thick] (\angle:1.0cm) -- (\angle:2.0cm);}
+    \end{tikzpicture}
+}
+
+\newcommand{\markDoubleSunSmall}{
+    \begin{tikzpicture}
+        \draw[dash dot, very thin] (0,0) circle (0.3cm);
+        \draw[dash dot, very thin] (0,0) circle (0.1cm);
+        \foreach \angle in
+            {0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330}
+            {\draw[very thin] (\angle:0.16cm) -- (\angle:0.5cm);}
+        \foreach \angle in
+            {15, 45, 75, 105, 135, 165, 195, 225, 255, 285, 315, 345}
+            {\draw[very thin] (\angle:0.2cm) -- (\angle:0.4cm);}
+    \end{tikzpicture}
+}
+

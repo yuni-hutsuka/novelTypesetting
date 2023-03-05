@@ -27,6 +27,7 @@
 \RequirePackage{framed}
 \RequirePackage{tikz}
 
+\usetikzlibrary{intersections, calc, arrows.meta}
 
 % -------------------------------------------------------------------------------------------------
 

@@ -1,0 +1,3 @@
+[submodule "vivliostyle/theme_bunko"]
+	path = vivliostyle/theme_bunko
+	url = git@github.com:yuni-hutsuka/theme_bunko.git

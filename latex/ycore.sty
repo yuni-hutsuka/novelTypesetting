@@ -1,0 +1,92 @@
+% core.sty
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{ycore}[2023/03/22 ycore]
+
+% -------------------------------------------------------------------------------------------------
+
+% パッケージの導入
+
+\RequirePackage{luatexja-fontspec, luatexja-otf, luatexja-ruby}
+\RequirePackage{pdfpages}
+\RequirePackage{tocloft, titletoc}
+
+\RequirePackage{lltjext}
+\RequirePackage{framed}
+\RequirePackage{tikz}
+
+\usetikzlibrary{intersections, calc, arrows.meta}
+
+
+% -------------------------------------------------------------------------------------------------
+
+% フォント設定
+
+\setsansfont[
+    UprightFont = {*-Roman},
+    BoldFont = {*-Roman},
+    FontFace = {eb}{\shapedefault}{*-Roman},
+    Script = Default
+]{GenEiNombre}
+
+\setmainjfont[
+    UprightFont={*-Regular.ttf},
+    BoldFont={*-Bold.ttf},
+    FontFace={eb}{\shapedefault}{*-Regular.ttf},
+    Script=Default
+]{ShipporiMincho}
+
+\setsansjfont[
+    UprightFont = {*-Regular},
+    BoldFont = {*-Bold},
+    FontFace = {eb}{\shapedefault}{*-Bold},
+    Script = Default
+]{HackGenConsoleNF}
+
+
+% -------------------------------------------------------------------------------------------------
+
+% pagestyle
+
+\NewPageStyle{novelpage}{
+    font={\small},
+    nombre={\quad\thepage\quad},
+    gap=1\zw,
+    running_head_position=top-left,
+    nombre_position=top-left,
+    odd_running_head={_chapter},
+    even_running_head={_part},
+    mark_format={
+        _chapter={#1},
+        _section={#1},
+    }
+}
+
+\ModifyHeading{part}{
+    number=false,
+    format={\null\vfill {\Huge #1#2}\vfill},
+    pagestyle=empty
+}
+
+\ModifyHeading{chapter}{
+    number=false,
+    pagebreak=begin_with_odd_page
+}
+
+\ModifyHeading{section}{
+    number=false
+}
+
+
+% -------------------------------------------------------------------------------------------------
+
+% 目次
+
+\renewcommand{\cfttoctitlefont}{\thispagestyle{empty}\clearpage\vspace*{50mm}\hspace*{30mm}\LARGE\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill\null}
+%
+\renewcommand{\cftbeforetoctitleskip}{20mm}
+\renewcommand{\cftaftertoctitleskip}{20mm}
+%
+\titlecontents{part}[20mm]{\bfseries}{\thecontenslabel}{}{\hfill\hspace*{20mm}}
+\titlecontents{chapter}[25mm]{}{\large\thecontenslabel}{}{\hfill\textsf{\contentspage}\hspace*{20mm}}

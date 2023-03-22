@@ -1,0 +1,36 @@
+\documentclass{../ybmain}
+
+\usepackage{../ycore}
+\usepackage{../ycmds}
+
+\pagestyle{novelpage}
+
+\begin{document}
+    \begin{titlepage}
+        \includepdf[pages=1]{./sample_title.pdf}
+    \end{titlepage}
+
+    \setcounter{tocdepth}{0}
+    \tableofcontents
+    \thispagestyle{empty}
+
+\clearpage
+
+    \thispagestyle{empty}
+    \null\vfill
+    \begin{center}
+        この移ろいゆく『時と情報』の濁流の中であなたと出会えたことを幸せに思う
+    \end{center}
+    \vfill\null
+
+
+    \part{パート位置}
+    \part{パート弐}
+    \part{パート……}
+    \part{パート四}
+    %
+    % \cleardoublepage
+    %
+    % \includepdf[pages=1]{./sample_colophon.pdf}
+
+\end{document}
